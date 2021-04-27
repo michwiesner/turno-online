@@ -1,0 +1,185 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- First half -->
+        <div class="col-11 col-lg-6 pt-3">
+          <div class="card">
+            <div class="card-body">
+                <form [formGroup]="profileForm" (ngSubmit)="submit()">
+
+                    <div class="row m-1 m-md-3 justify-content-center">
+                        <div class="col-md-10 col-lg-12">
+                          <div class="form-group">
+                            <label for="form_name">Nombre del especialista</label>
+                            <input type="text" formControlName="name" name="name" class="form-control" placeholder="Nombre y apellido" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-10 col-lg-12">
+                          <div class="form-group">
+                            <label for="form_area">Especialidad</label>
+                            <select class="form-control" formControlName="area" placeholder="Choose.." required>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-10 col-lg-12">
+                          <div class="form-group">
+                            <label for="form_address">Direccion del consultorio</label>
+                            <input type="text" formControlName="address" name="address" class="form-control" placeholder="Direccion del consultorio" required>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-1 m-md-3 justify-content-center align-items-center">
+                        <div class="col-md-10 col-lg-6 pb-2 pb-md-0">
+                            <div class="form-group">
+                              <label for="form_area">Hora de entrada</label>
+                                <select class="form-control" formControlName="area" placeholder="Choose.." required>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                              
+                        </div>
+                          
+                        <div class="col-md-10 col-lg-6">
+                            <div class="form-group">
+                              <label for="form_area">Hora de salida</label>
+                              <select class="form-control" formControlName="area" placeholder="Choose.." required>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+      
+                        <div class="col-md-10 col-lg-12 m-1 m-md-3">
+                            <div class="form-check">
+                                <input type="checkbox" [checked]="cortado" (change)="cortado = !cortado" class="form-check-input" >
+                                <label class="form-check-label" for="exampleCheck1">Haces horario cortado?</label>
+                            </div>
+                        </div>
+                          
+                        <ng-container *ngIf="cortado">
+                            <div class="col-md-10 col-lg-6 pb-2 pb-md-0">
+                                <div class="form-group">
+                                    <label for="form_area">Empieza el cortado</label>
+                                    <select class="form-control" formControlName="area" placeholder="Choose.."  required>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-10 col-lg-6 mb-4 mb-md-0">
+                                <div class="form-group">
+                                    <label for="form_area">Termina el cortado</label>
+                                    <select class="form-control" formControlName="area" placeholder="Choose.."  required>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </ng-container>
+                          
+                        <div class="col-md-10 col-lg-6 mt-3">
+                            <div class="form-group">
+                                <label for="form_area">Tiempo aproximado por turno</label>
+                                <select class="form-control" formControlName="area" placeholder="Choose.."  required>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+      
+                        <div class="col-md-10 col-lg-6 pt-2 pt-xl-4 mt-md-5">
+                            <p class="text-center">20 minutos por turno</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center m-3">
+                        <button type="button" class="btn btn-secondary mx-3">Cancelar</button>
+                        <button ngbAutofocus class="btn btn-info button-shadow" routerLink="/dashboard">Guardar</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second half -->
+        <div class="col-12 col-lg-6 pt-3">
+            <!-- Imagen de perfil -->
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Imagen de perfil</h5>
+                      <div class="m-3">
+                          <a type="button" (click)="selectAvatar(content)">
+                              <img src="assets/images/avatar/default.jpg" alt="no-profile-img" class="img-fluid w30">
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <!-- Vacaciones -->
+            <div class="col mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="p-3">
+                            <h5 class="card-title text-center">Vacaciones</h5>
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <label for="form_name">Empiezan</label>
+                                    <input type="date" class="form-control" name="" id="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Terminan</label>
+                                    <input type="date" class="form-control" name="" id="">
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-info button-shadow">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para seleccionar imagen de perfil -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Selecciona una imagen</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row row-cols-3 text-center">
+                <ng-container *ngFor="let images of avatars; let i = index">
+                    <div class="col">
+                        <button name="avatar" class="noBorde" appSelect (click)="selection(i)">
+                            <img id={{i}} src="assets/images/avatar/{{ images.option }}.jpg" alt="{{ images.alt }}" class="img-fluid my-2">
+                        </button>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="float-right mt-3">
+                <button type="button" class="btn btn-secondary mx-3">Cancelar</button>
+                <button type="button" ngbAutofocus class="btn btn-info button-shadow">Guardar</button>
+            </div>
+        </div> 
+    </div>
+  </ng-template>

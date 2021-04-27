@@ -1,0 +1,19 @@
+.w30 {
+    width: 30%;
+}
+
+.bordeSolido {
+  /*  border-color: #555555;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 6px; */
+    border: 3px solid #555;
+    border-radius: 6px;
+    background: none;
+}
+
+.noBorde {
+  outline: none !important;
+  border: none;
+  background: none;
+}

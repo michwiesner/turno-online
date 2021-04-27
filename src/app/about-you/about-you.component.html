@@ -1,0 +1,162 @@
+<div class="modal-body">
+    <button type="button" class="close ml-auto mr-3" routerLink="/"><h2>&times;</h2></button>
+    <h2 class="text-center m-3">Cuentanos un poco mas sobre ti</h2>
+    <p class="text-center m-1">
+      Completa estos datos para poder iniciar.
+    </p>
+    
+    <div class="container pt-2">
+      <div class="d-flex justify-content-center align-items-center">
+        <ul class="list-group list-group-horizontal list-unstyled">
+          <ng-container *ngFor="let step of steps; let i = index">
+            <li class="p-0 p-md-3 text-center">
+              <button type="button" (click)="setStep(i)" class="btn rounded-circle" [ngClass]="{'btn-info': stepControl == i, 'btn-secondary': stepControl !== i }">
+                <i class="{{step.icon}}"></i>
+              </button>
+              <br>
+              <p class="m-2 text-muted">{{step.title}}</p>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      
+      <form [formGroup]="aboutForm" (ngSubmit)="doSomething()">
+        <!-- First step: Datos -->
+        <ng-container *ngIf="stepControl === 0">
+          <div class="card border-0">
+            <div class="card-body">
+              <div class="row m-3 justify-content-center">
+                  <div class="col-md-5">
+                    <div class="form-group">
+                      <label for="form_name">Nombre del especialista</label>
+                      <input id="form_name" type="text" formControlName="name" name="name" class="form-control" placeholder="Nombre y apellido" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-group">
+                      <label for="form_area">Especialidad</label>
+                      <select class="form-control" formControlName="area" placeholder="Choose.." id="inputGroupSelect01" required>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="form-group">
+                      <label for="form_address">Direccion del consultorio</label>
+                      <input id="form_address" type="text" formControlName="address" name="address" class="form-control" placeholder="Direccion del consultorio" required>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Second step: Horarios -->
+        <ng-container *ngIf="stepControl === 1">
+          <div class="card border-0">
+            <div class="card-body">
+              <div class="row m-3 justify-content-center align-items-center">
+                  <div class="col-md-8 col-lg-5 pb-4 pb-md-0">
+                    <div class="form-group">
+                      <label for="form_area">Hora de entrada</label>
+                      <select class="form-control" formControlName="startHour" placeholder="Choose.." id="inputGroupSelect02" required>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                      
+                  </div>
+                  
+                  <div class="col-md-8 col-lg-5">
+                    <div class="form-group">
+                      <label for="form_area">Hora de salida</label>
+                      <select class="form-control" formControlName="finishHour" placeholder="Choose.." id="inputGroupSelect03" required>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-8 col-lg-10 m-3">
+                      <div class="form-check">
+                          <input type="checkbox" formControlName="cortado" [checked]="cortado" (change)="cortado = !cortado" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Haces horario cortado?</label>
+                      </div>
+                  </div>
+                  
+                  <ng-container *ngIf="cortado">
+                      <div class="col-md-8 col-lg-5 pb-4 pb-md-0">
+                        <div class="form-group">
+                          <label for="form_area">Empieza el cortado</label>
+                          <select class="form-control" formControlName="cortadoStart" placeholder="Choose.." id="inputGroupSelect04" required>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col-md-8 col-lg-5 mb-4 mb-md-0">
+                        <div class="form-group">
+                          <label for="form_area">Termina el cortado</label>
+                          <select class="form-control" formControlName="cortadoFinish" placeholder="Choose.." id="inputGroupSelect05" required>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                        </div>
+                      </div>
+                  </ng-container>
+              
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Third step: Turnos-->
+        <ng-container *ngIf="stepControl === 2">
+          <div class="card border-0">
+            <div class="card-body">
+              <div class="row m-2 justify-content-center align-items-center">
+                <div class="col-md-8 col-lg-5 mt-3">
+                  <div class="form-group">
+                    <label for="form_area">Tiempo aproximado por turno</label>
+                    <select class="form-control" formControlName="timePerTurn" placeholder="Choose.." id="inputGroupSelect06" required>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                </div>
+    
+                <div class="col-md-8 col-lg-5 pt-2 pt-xl-4 mt-md-4">
+                    <p class="text-center">20 minutos por turno</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="stepControl === 3">
+          <div class="row m-2 justify-content-center align-items-center">
+            <div class="col-12 text-center">
+              <h3>¡Completado!</h3>
+              <p>Ya puedes empezar a organizar tus citas.</p>
+            </div>
+            <div class="col-12 text-center">
+              <img src="assets/images/done.svg" alt="done-image" class="image-w50">
+            </div>
+          </div> 
+        </ng-container>
+        
+        <div class="float-right mb-3">
+          <button type="button" [disabled]="previousDisabled" class="btn btn-secondary mx-3" (click)="setStep(stepControl, -1)">Previous</button>
+          <button type="button" [hidden]="nextDisabled" ngbAutofocus class="btn btn-info" (click)="setStep(stepControl, 1)">Next</button>
+          <button [hidden]="!nextDisabled" ngbAutofocus class="btn btn-success">Ir a dashboard</button>
+        </div>
+      </form>
+    </div>
+</div>

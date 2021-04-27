@@ -1,0 +1,46 @@
+<div id="mySidenav" [ngClass]="{'sidenavOpen':isMenuOpen}" class="sidenav">
+    <div class="ml-1">
+        <a type="button" (click)="toggle()">
+            <i class="bi bi-list"></i>
+        </a>
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="d-flex align-items-center">
+        <a routerLink="/dashboard" class="ml-1" type="button" placement="right" ngbTooltip="Dashboard" container="body">
+            <i class="bi bi-house"></i>
+        </a>
+        <a routerLink="/dashboard" class="mt-1" [ngStyle]="{'display': isMenuOpen ? 'block' : 'none'}">
+            Dashboard
+        </a>
+    </div>
+
+    <ng-container *ngFor="let option of optionsMenu">
+        <hr class="custom-hr">
+        <div class="d-flex align-items-center" routerLinkActive="activo">
+            <a [routerLink]="option.url" class="ml-1" type="button" placement="right" ngbTooltip="{{ option.name }}" container="body">
+                <i class="{{ option.icon }}"></i>
+            </a>
+            <a [routerLink]="option.url" class="mt-1" [ngStyle]="{'display': isMenuOpen ? 'block' : 'none'}">
+                {{ option.name }}
+            </a>
+        </div>
+    </ng-container>
+
+    <div class="mt-auto">
+        <hr class="custom-hr">
+        <div class="d-flex align-items-center">
+            <a (click)="signout()"  class="ml-1" type="button" placement="right" ngbTooltip="Salir" container="body">
+                <i class="bi bi-door-open"></i>
+            </a>
+            <a (click)="signout()" type="button" class="mt-1" [ngStyle]="{'display': isMenuOpen ? 'block' : 'none'}">
+                Cerrar sesión
+            </a>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Black fill of screen -->
+<div class="overlay" (click)="toggle()" [ngStyle]="{'display': isMenuOpen ? 'block' : 'none'}"></div>

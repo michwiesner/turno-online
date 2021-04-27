@@ -1,0 +1,95 @@
+<div class="modal-body">
+    <div class="container">
+        <form [formGroup]="appointmentForm" (ngSubmit)="submit()">
+
+            <div class="row m-1 m-md-3 justify-content-center">
+                <h5 class="mb-3">Datos del paciente</h5>
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label for="form_name">Nombre del paciente</label>
+                    <input type="text" ngbAutofocus formControlName="name" name="name" class="form-control" placeholder="Nombre y apellido" required>
+                  </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-group">
+                      <label for="form_dni">DNI</label>
+                      <input type="number" ngbAutofocus formControlName="dni" name="dni" class="form-control" placeholder="Documento nacional de identidad" required>
+                    </div>
+                  </div>
+
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="form_area">Mutual</label>
+                        <select class="form-control" formControlName="insurance" placeholder="Choose.." required>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-group">
+                      <label for="form_address">Numero de mutual</label>
+                      <input type="text" formControlName="insuranceNum" class="form-control" placeholder="Direccion del consultorio" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row m-1 m-md-3 justify-content-center align-items-center">
+                <h5 class="mb-3">Datos de la cita</h5>
+                <div class="col-md-10">
+                    <div class="form-group">
+                      <label for="form_area">Fecha</label>
+                      <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="dp" formControlName="date" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                            <span class="bi bi-calendar-week"></span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                      
+                </div>
+                  
+                <div class="col-md-10">
+                    <div class="form-group">
+                      <label for="form_area">Hora</label>
+                      <select class="form-control" formControlName="hour" placeholder="Choose.." required>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="form_area">Informacion de contacto</label>
+                        <input type="text" class="form-control" formControlName="contact" placeholder="Telefono o email de paciente">
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="form_area">Estatus</label>
+                        <select class="form-control" formControlName="status" placeholder="Choose.."  required>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center m-3">
+                <button type="button" class="btn btn-secondary mx-3">Cancelar</button>
+                <button class="btn btn-info button-shadow">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

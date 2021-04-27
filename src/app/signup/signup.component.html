@@ -1,0 +1,30 @@
+<div class="modal-body">
+    <button type="button" class="close ml-auto mr-3" routerLink="/"><h2>&times;</h2></button>
+    <h2 class="text-center m-4">Crea tu cuenta</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="doSomething()">
+        <div class="row m-4 justify-content-center">
+          <div class="col-md-10">
+            <div class="form-group">
+              <label for="form_emailSignup">Email</label>
+              <input id="form_emailSignup" type="email" formControlName="email" name="email" class="form-control" placeholder="miemail@correo.com" required>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="form-group">
+              <label for="form_password1Signup">Contraseña</label>
+              <input id="form_password1Signup" type="password" formControlName="password1" name="password1" class="form-control" placeholder="Contraseña" required>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="form-group">
+              <label for="form_password2">Repetir contraseña</label>
+              <input id="form_password2" type="password" formControlName="password2" name="password2" class="form-control" placeholder="Repetir contraseña" required>
+            </div>
+          </div>
+        </div>
+        <div class="text-center m-4">
+          <button type="submit" ngbAutofocus class="btn btn-info button-shadow">Registrame</button>
+        </div>
+    </form>
+    <p class="text-center m-4"><small>Ya tienes una cuenta? <a type="button" routerLink="/login">Inicia sesión</a></small></p>
+</div>

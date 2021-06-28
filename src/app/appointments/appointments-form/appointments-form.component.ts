@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AppointmentsService } from '../../functions/services/appointments.service';
+import { AppointmentsService } from 'src/app/functions/services/appointments.service';
 
 @Component({
-  selector: 'app-appointment-form',
-  templateUrl: './appointment-form.component.html',
-  styleUrls: ['./appointment-form.component.css']
+  selector: 'app-appoinments-form',
+  templateUrl: './appointments-form.component.html',
+  styleUrls: ['./appointments-form.component.css']
 })
-export class AppointmentFormComponent implements OnInit {
+export class AppointmentsFormComponent implements OnInit {
 
   appointmentForm: FormGroup;
   constructor(private apposService: AppointmentsService) { }

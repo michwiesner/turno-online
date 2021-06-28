@@ -1,3 +1,11 @@
+/* Css paleta de colores */
+.color1 {color: #140f07;}
+.color2 {color: #11233f;}
+.color3 {color: #0a5596;}
+.color4 {color: #038ef8;}
+.color5 {color: #08d5ff;}
+
+
 <form [formGroup]="aboutForm" (ngSubmit)="doSomething()">
 
     <div class="row row-cols-1 row-cols-xl-2">
@@ -117,3 +125,111 @@
       <button type="submit" ngbAutofocus class="btn btn-info button-shadow" routerLink="/dashboard">Aceptar</button>
     </div>
 </form>
+
+
+<!-- <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+            <div class="card-deck">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre1 apellido1</h5>
+                      <p class="card-text">Swiss medical</p>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre2 apellido2</h5>
+                      <p class="card-text">OSDE</p>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre3 apellido3</h5>
+                      <p class="card-text">IOMA</p>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre4 apellido4</h5>
+                      <p class="card-text">Apres</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+      </div> -->
+
+      <div class="m-3">
+        <a type="button" class="float-left text-dark" (click)="goBack()" >
+          <i class="bi bi-arrow-left"></i>
+        </a>
+        <h3 class="text-center">Mes: {{ months[param-1] }} </h3>
+
+      </div>
+
+
+      <div class="row row-cols-2 row-cols-md-6 mt-3 mt-md-5">
+        <ng-container *ngFor="let day of days; let i = index">
+            <div class="col">
+                <div class="card mt-2">
+                    <div class="card-body p-3 text-center">
+                        <h6>
+                            {{ day.day }}
+                        </h6>
+                        <p class="text-muted">
+                           Citas: {{day.appointments}}
+                        </p>
+                        <button type="button" class="btn btn-dark rounded-circle" [routerLink]="['../appointments-days', i+1]"><i class="bi bi-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+
+
+
+
+    <!-- Appointments -->
+
+    <form [formGroup]="radioGroupForm">
+        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
+          <label ngbButtonLabel class="btn-info p-3">
+            <input ngbButton type="radio" [value]="1"> Ver por mes
+          </label>
+          <label ngbButtonLabel class="btn-info p-3">
+            <input [routerLink]="['../appointments-days', 2]"> Ver por dia
+          </label>
+        </div>
+      </form>
+
+     <!-- Month -->
+     <ng-container *ngIf="radioGroupForm.value['model'] === 1" #month>
+        <div class="row row-cols-2 row-cols-md-4 mt-3 mt-md-5">
+            <ng-container *ngFor="let month of months; let i = index">
+                <div class="col">
+                    <div class="card mt-2">
+                        <div class="card-body p-3 text-center">
+                            <p class="text-secondary">
+                                {{month.name}}
+                            </p>
+                            <button type="button" class="btn btn-dark rounded-circle" [routerLink]="['../appointments-days', i+1]">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>      
+    </ng-container>
+    
+    <!-- Day -->
+    <ng-container *ngIf="radioGroupForm.value['model'] === 2" #day>
+        <app-appointments-day [monthNum]="2"></app-appointments-day>
+    </ng-container>

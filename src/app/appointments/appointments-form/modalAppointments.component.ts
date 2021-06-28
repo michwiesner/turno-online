@@ -1,12 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NgbModal, NgbModalOptions, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Location } from '@angular/common';
-import { AppointmentFormComponent } from './appointment-form.component';
-
+import { AppointmentsFormComponent } from './appointments-form.component';
 
 @Component({
   selector: 'app-modal-container',
@@ -29,7 +27,7 @@ export class ModalAppointmentsComponent implements OnDestroy {
     route.params.pipe(takeUntil(this.destroy)).subscribe(params => {
 
         // When router navigates on this component is takes the params and opens up the photo detail modal
-        this.currentDialog = this.modalService.open(AppointmentFormComponent, this.modalOptions).result.then((result) => {},
+        this.currentDialog = this.modalService.open(AppointmentsFormComponent, this.modalOptions).result.then((result) => {},
                       (reason) => {
                         if (reason === ModalDismissReasons.BACKDROP_CLICK) {
                           this.location.back();

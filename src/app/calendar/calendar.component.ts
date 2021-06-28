@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Appoinment } from 'src/app/functions/models/appointment.model';
-import { AppointmentsService } from '../../functions/services/appointments.service';
+import { Appoinment } from '../functions/models/appointment.model';
+import { AppointmentsService } from '../functions/services/appointments.service';
 
 @Component({
   selector: 'app-calendar',
@@ -8,6 +8,7 @@ import { AppointmentsService } from '../../functions/services/appointments.servi
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+
   appos: Appoinment[] = [];
   constructor(private appoService: AppointmentsService) { }
 

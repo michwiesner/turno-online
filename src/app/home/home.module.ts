@@ -17,6 +17,7 @@ import { IntroductionComponent } from './introduction/introduction.component';
 // Child's modules
 import { LoginModule } from '../login/login.module';
 import { SignupModule } from '../signup/signup.module';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SignupModule } from '../signup/signup.module';
     HomeRoutingModule,
     ReactiveFormsModule,
     LoginModule,
-    SignupModule
+    SignupModule,
+    DashboardModule
   ]
 })
 export class HomeModule { }

@@ -1,0 +1,38 @@
+<div class="container">
+    <ng-container >
+        <div class="row align-items-center justify-content-center mt-4">
+            <div class="col text-center">
+                <div class="p-1 bg-light rounded shadow-sm">
+                    <div class="input-group">
+                      <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                      <div class="input-group-append">
+                        <button id="button-addon1" type="submit" class="btn btn-link text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+
+                <button type="button" class="btn btn-info p-3 mx-1" [routerLink]="['/doctor/appointments']">
+                    Month
+                </button>
+                <button type="button" class="btn btn-info p-3" [routerLink]="['../appointments-days', month]">
+                    Day
+                </button>
+                
+            </div>
+            <div class="col">
+                <button class="btn btn-success btn-lg btn-block" [routerLink]="['/doctor/patients/patients-form', 'new']"> 
+                    <i class="bi bi-plus"></i> 
+                    &nbsp; New appointment
+                </button>
+            </div>
+        </div>
+    </ng-container>
+    
+   <router-outlet></router-outlet>
+</div>

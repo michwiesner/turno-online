@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-appointments',
-  templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.css']
+  selector: 'app-appointments-month',
+  templateUrl: './appointments-month.component.html',
+  styleUrls: ['./appointments-month.component.css']
 })
-export class AppointmentsComponent implements OnInit {
-  radioGroupForm: FormGroup;
+export class AppointmentsMonthComponent implements OnInit {
 
   months = [
     { name: 'Enero', url: '', days: []},
@@ -24,16 +22,9 @@ export class AppointmentsComponent implements OnInit {
     { name: 'Diciembre', url: '', days: []},
 
   ]
+
   constructor() { }
 
   ngOnInit(): void {
-    this.initButtons();
   }
-
-  initButtons() {
-    this.radioGroupForm = new FormGroup({
-      model: new FormControl(1)
-    });
-  }
-
 }

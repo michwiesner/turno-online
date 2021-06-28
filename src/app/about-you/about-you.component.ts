@@ -44,7 +44,7 @@ export class AboutYouComponent implements OnInit {
 
   doSomething() {
     console.log(this.aboutForm.value);
-    this.router.navigateByUrl('/dashboard');
+    this.router.navigateByUrl('/doctor');
   }
 
   setStep(step:number, nextStep?: number) {
